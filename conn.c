@@ -116,7 +116,7 @@ int store_conn(int downfd, int client)
 
 int idler(int conn)
 {
-	return (conns[conn].state & CS_CONNECTED) && (conns[conn].client == -1);
+	return (conns[conn].state & CS_CONNECTED || conns[conn].state & CS_IN_PROGRESS) && (conns[conn].client == -1);
 }
 
 void close_conn(int i)
