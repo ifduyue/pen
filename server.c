@@ -421,7 +421,7 @@ int try_server(int index, int conn)
 	}
 	conns[conn].server = index;
 	DEBUG(2, "Setting server %d for client %d", index, client);
-	clients[client].server = index;
+	if (client != -1) clients[client].server = index;
 	current = index;
 	conns[conn].upfd = upfd;
 	fd2conn_set(upfd, conn);
